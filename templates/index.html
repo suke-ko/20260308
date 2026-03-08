@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Studio - JS Free</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-slate-800 p-8 rounded-3xl shadow-2xl border border-slate-700">
+        <h1
+            class="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            RGB COLOR PICKER
+        </h1>
+
+        <form hx-get="/update_color" hx-target="#display" hx-trigger="input" hx-include="input" class="space-y-6">
+
+            <div>
+                <div class="flex justify-between mb-2">
+                    <label class="text-red-400 font-bold">Red</label>
+                </div>
+                <input type="range" name="r" min="0" max="255" value="0"
+                    class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-red-500">
+            </div>
+
+            <div>
+                <div class="flex justify-between mb-2">
+                    <label class="text-green-400 font-bold">Green</label>
+                </div>
+                <input type="range" name="g" min="0" max="255" value="0"
+                    class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-green-500">
+            </div>
+
+            <div>
+                <div class="flex justify-between mb-2">
+                    <label class="text-blue-400 font-bold">Blue</label>
+                </div>
+                <input type="range" name="b" min="0" max="255" value="0"
+                    class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500">
+            </div>
+        </form>
+
+        <div id="display" class="mt-10 flex flex-col items-center">
+            <div
+                class="w-40 h-40 rounded-2xl shadow-inner border-4 border-slate-700 bg-black transition-all duration-300">
+            </div>
+            <p class="mt-4 font-mono text-slate-400">rgb(0, 0, 0)</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
